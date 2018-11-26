@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Explore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBe9SqQxe_qmKF96MsGr_DIc4t6NnXjJYg",
+      authDomain: "explore-a04e7.firebaseapp.com",
+      databaseURL: "https://explore-a04e7.firebaseio.com",
+      projectId: "explore-a04e7",
+      storageBucket: "explore-a04e7.appspot.com",
+      messagingSenderId: "240563127991"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+        $('#upload').click(function (event){
+    event.preventDefault();
+          var category = $('#category').val();
+          var name = $('#name').val();
+          var date = $('#date').val();
+          var contact = $('#contact').val();
+          var description = $('#description').val();
+          var address = $('#address').val();
+
+
+          console.log("category " + category);
+          console.log("name" + name);
+          console.log("date" + date);
+          console.log("contact" + contact);
+          console.log("address" + address);
+          console.log("description" + description);
+   console.log("button clicked");
+   var data ={
+     name : name,
+     date: date,
+     contact:contact,
+     description:description,
+     address:address
+   }
+ firebase.database().ref('Event/Brazil').set(data);
+
+  });
+});
+  </script>
+</head>
+<body>
+
+      <div class="first-container">
+
+        <!-- Header Code Starts here  -->
+        <div class="header_first-container">
+          <div class="container">
+               <div class="header_secondary-container">
+                     <div class="header_container">
+                       <div class="logo_image">
+                           <img src="images/smallLogo.png" alt="">
+                       </div>
+                       <div class="header_nav">
+                           <ul>
+                             <li><a href="index.html">Home</a></li>
+                             <li><a href="about.html">About Us</a></li>
+                           </ul>
+                       </div>
+                     </div>
+
+                     <div class="slider">
+
+                             <div class = "first_side" >
+                               <p>The main motive of the app
+                                 is to promote the cultures from
+                                  different origins in order to
+                                  provide them more exposure.</p>
+                               <div class="download_icons">
+
+                                  <button class="googleplay"></button>
+                                 <button class="appstore"></button>
+                               </div>
+                            </div>
+                                <img src="images/banner.png" alt="banner image">
+
+                     </div>
+               </div>
+           </div>
+        </div>
+
+
+           <!-- Header Code Ends here  -->
+
+             <!-- Main area Code Starts here  -->
+
+                  <div class="main_container">
+
+
+                   <div class="contact_form-container">
+                      <h1 class="heading">Upload Event</h1>
+                  </div>
+                      <form class="form_container">
+                        <div class="input_wrapper">
+                            <label>Category:</label>
+                            <div>
+                                <input id="category" type="radio" class="input_field" name="category" value="India">India
+                                <input id="category" type="radio" class="input_field" name="category" value="Brazil">Brazil
+                          </div>
+                        </div>
+                        <div class="input_wrapper">
+                            <label>Name :</label>
+                            <input id="name" type="text" class="input_field" name="event_name">
+                        </div>
+                        <div class="input_wrapper">
+                            <label>Date</label>
+                            <input id="date" type="date" class="input_field" name="event_date">
+                        </div>
+                        <div class="input_wrapper">
+                            <label>Contact</label>
+                            <input id="contact" type="number" class="input_field" name="phone_number">
+                        </div>
+                        <div class="input_wrapper">
+                            <label>Address</label>
+                            <textarea id="address" class="input_field" name="address" id "address"></textarea>
+                        </div>
+                        <div class="input_wrapper">
+                            <label>Description:</label>
+                          <textarea id="description" class="input_field" name="description"></textarea>
+                        </div>
+
+                        <div class="input_wrapper button_wrapper">
+                          <input id="upload" class="submit_button" type="submit" value="Upload">
+                        </div>
+
+                      </form>
+
+
+                   </div>
+
+           <!--Footer codes starts here  -->
+           <div class="footer-container">
+                <div class="footer">
+
+                       <div class="copyright">&#169; Team4&nbsp;(Yellow Team)</div>
+
+                       <div class="social_media">
+                           <ul><li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                             <li><a href="https://twitter.com/?lang=en" target="_blank"> <i class="fab fa-twitter-square"></i></a></li>
+                           </ul>
+                       </div>
+
+
+                </div>
+           </div>
+         </div>
+</body>
+</html>
